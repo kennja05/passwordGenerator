@@ -1,6 +1,23 @@
 import requests
 from random import randint
 
+def special_characters_array():
+    char_codes = []
+    i = 33
+    while i <= 48:
+        char_codes.append(i)
+        i+=1
+    i = 58
+    while i <= 64:
+        char_codes.append(i)
+        i+=1
+    i = 91
+    while i <= 96:
+        char_codes.append(i)
+        i+=1
+    char_codes = list(map(lambda char: chr(char), char_codes))
+    return char_codes
+
 #get list of words if user does not specify a word or phrase 
 word_site = "https://www.mit.edu/~ecprice/wordlist.10000"
 response = requests.get(word_site)
@@ -24,19 +41,5 @@ while min_length <= 6 or min_length > 30:
     if int(desired_length) <= 6 or int(desired_length) > 100:
         print("Miminum length must be an integer of at least 6 and less than 100")
     min_length = int(desired_length)
+print(special_characters_array())
 
-def special_characters_array():
-    char_codes = []
-    i = 33
-    while i <= 48:
-        char_codes.append(i)
-        i+=1
-    i = 58
-    while i <= 64:
-        char_codes.append(i)
-        i+=1
-    i = 91
-    while i <= 96:
-        char_codes.append(i)
-        i+=1
-    return char_codes

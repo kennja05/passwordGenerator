@@ -24,7 +24,16 @@ else:
 
 include_spec_char = input("Would you like to include special characters? y/n: ").lower()
 include_num = input("Would you like to include numbers? y/n: ").lower()
-
+min_length = 0
+while min_length <= 6 or min_length > 30:
+    desired_length = input("What is the minimum length for your password?: ")
+    try: 
+        int(desired_length)
+    except:
+        desired_length = 0
+    if int(desired_length) <= 6 or int(desired_length) > 100:
+        print("Miminum length must be an integer of at least 6 and less than 100")
+    min_length = int(desired_length)
 
 def special_characters_array():
     char_codes = []
